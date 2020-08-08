@@ -24,6 +24,13 @@ class Gedung extends Controller
         echo view('layout/footer');
     }
     
+    public function tambahIface()
+    {
+        echo view('layout/header');
+        echo view('gedung/tambah');
+        echo view('layout/footer');
+    }
+
     public function tambah()
     {
         try {

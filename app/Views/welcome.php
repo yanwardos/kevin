@@ -13,7 +13,7 @@
                 <h1 class="display-4">Laman Monitoring Pengunaan <span class="font-weight-bold"><br>Listrik</span></h1>
                 <hr class="my-4">
                 <p>Sebuah aplikasi untuk memonitoring penggunaan listrik di lingkungan kampus ITERA.</p>
-                <a class="btn btn-primary btn-lg" href="#data" role="button">DATA</a> 
+                <a class="btn btn-primary btn-lg" href="<?php base_url()?>/grafik" role="button">DATA</a> 
             </div> 
         </div>
         <div class="carousel-item crop">

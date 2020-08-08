@@ -32,10 +32,16 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Welcome::index');
 $routes->add('/monitoring', 'Monitoring::index');
+$routes->add('/tambahrekord', 'Monitoring::tambahIface');
 $routes->add('/admon', 'Monitoring::tambah');
+$routes->add('/grafik', 'Monitoring::grafik');
+$routes->add('/datamonitoring', 'Monitoring::getDataMonitoring');
 
 $routes->add('/gedung', 'Gedung::index');
+$routes->add('/tambahgedung', 'Gedung::tambahIface');
 $routes->add('/adged', 'Gedung::tambah');
+
+$routes->add('/about', 'AboutController::index');
 
 /**
  * --------------------------------------------------------------------
