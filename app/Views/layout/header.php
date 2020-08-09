@@ -36,13 +36,16 @@
                 
                 <!-- Penambahan menu bar dengan drop down -->
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger text-light" href="<?php base_url()?>/about" >About</a>
+                    <a class="nav-link js-scroll-trigger text-light" href="<?php base_url()?>/grafik" >Grafik</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger text-light" href="<?php base_url()?>/monitoring">Monitoring</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger text-light" href="<?php base_url()?>/gedung">Gedung</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger text-light" href="<?php base_url()?>/about" >About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger text-light" href="<?php base_url()?>/">Login</a>

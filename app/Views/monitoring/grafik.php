@@ -2,20 +2,45 @@
     <div class="row p-2">
         <div class="col-lg-8 col-md-12 col-sm-12">
             <canvas id="chart" class="w-100"></canvas>
-
+            <hr>
         </div>
         <div class="col-lg-4 col-md-12 col-sm-12">
-            Tools Going Here
+            <div class="row">
+                <div class="col">
+                    <label for="start-date">Start Date</label>
+                    <input class="form-control" type="date" name="start-date" id="start-date">
+                    <hr>
+                    <label for="end-date">End Date</label>
+                    <input class="form-control" type="date" name="end-date" id="end-date">
+                </div>
+                <div class="col">
+                    
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
+    var startDate = document.getElementById('start-date');
+    var endDate = document.getElementById('end-date');
+    
+    startDate.onchange = function(){
+        if(startDate.value!="" && endDate.value!="") updateGrafik(startDate.value, endDate.value);
+    }
 
+    endDate.onchange = function(){
+        if(startDate.value!="" && endDate.value!="") updateGrafik(startDate.value, endDate.value);
+    }
 
     window.onload = function(){
-        getData(function(data){
+        updateGrafik();
+    }
+
+    function updateGrafik(startDate=false, endDate=false){
+
+        getData(startDate, endDate, function(data){
             jams = Array();
             kwhs = Array();
             data.forEach(element => {
@@ -32,8 +57,6 @@
                 jams.push(element.waktu.jam);
                 kwhs.push(element.kwh)
             });
-
-            console.log(data);
 
             var ctx = document.getElementById('chart').getContext('2d');
             var chart = new Chart(ctx, {
@@ -57,10 +80,14 @@
         })
     }
 
-    function getData(onSucces){
+    function getData(startDate, endDate, onSucces){
         $.ajax({
             type  : 'GET',
             url   : '<?php base_url()?>/datamonitoring',
+            data:{
+                startDate: startDate,
+                endDate: endDate
+            },
             async : true,
             dataType : 'json',
             success : function(data){
